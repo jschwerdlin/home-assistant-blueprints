@@ -151,7 +151,8 @@ blueprint:
       name: Trigger entities
       selector:
         entity:
-      default: ''
+          multiple: true
+      default: ""
     curl_command_service:
       name: CURL command service
       selector:
