@@ -53,7 +53,7 @@ blueprint:
       selector:
         entity:
           domain: sensor
-          device_class: pressure
+          device_class: atmospheric_pressure
       default: ''
     sensor_temp:
       name: Temperature sensor
