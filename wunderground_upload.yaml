@@ -53,7 +53,7 @@ blueprint:
       selector:
         entity:
           domain: sensor
-          device_class: pressure
+          device_class: atmospheric_pressure
       default: ''
     sensor_temp:
       name: Temperature sensor
@@ -151,7 +151,8 @@ blueprint:
       name: Trigger entities
       selector:
         entity:
-      default: ''
+          multiple: true
+      default: ""
     curl_command_service:
       name: CURL command service
       selector:
@@ -197,7 +198,7 @@ variables:
     {% set unit_of_measurement = state_attr(sensor_baro, 'unit_of_measurement') %}
     {{ sensor_baro if sensor_baro == ''
         else ((states(sensor_baro) | float(default=0)) if unit_of_measurement not in ['mbar', 'hPa']
-          else ((states(sensor_baro) | float(default=0)) / 33.8639) }}
+          else ((states(sensor_baro) | float(default=0)) / 33.8639)) }}
   tempf: >
     {% set unit_of_measurement = state_attr(sensor_temp, 'unit_of_measurement') %}
     {{ sensor_temp if sensor_temp == ''
